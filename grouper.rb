@@ -1,6 +1,8 @@
+require 'csv'
+require 'memprof2'
 
 address_count = {}
-csv.for_each do |l|
+STDIN.each_line do |l|
   line = CSV.parse(l)
   next if line.length != 1
   line = line[0]
@@ -9,4 +11,14 @@ csv.for_each do |l|
     address_count[line[1]]+=1
   end
 end
-puts address_count
+
+address_count = address_count
+  .sort { |a,b| a[1] <=> b[1] }
+  .reverse
+
+count = 0
+address_count.each do |k,v|
+  puts "#{k}: #{v}"
+  count += 1
+  break if count > 100
+end

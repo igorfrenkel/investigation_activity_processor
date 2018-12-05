@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    memprof2 (0.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  memprof2
+
+BUNDLED WITH
+   1.13.1
